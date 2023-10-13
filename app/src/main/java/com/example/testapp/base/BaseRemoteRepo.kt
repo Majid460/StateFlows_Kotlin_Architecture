@@ -6,22 +6,23 @@ import retrofit2.Response
 abstract class BaseRemoteRepo {
 
     suspend fun <T> safeApiCall(apiCall: suspend () -> Response<T>?): NetworkResult<T> {
-        try{
+        try {
             val response = apiCall.invoke()
-            if(response != null && response.isSuccessful){
+            if (response != null && response.isSuccessful) {
                 return NetworkResult.success(response.body())
             }
             val errorBody = response?.errorBody()?.string()
-            if (response?.code() == 404) {
-                    return NetworkResult.error("Bad Request")
+            return if (response?.code() == 404) {
+                NetworkResult.error("Bad Request")
             } else if (!errorBody.isNullOrEmpty()) {
-                    return NetworkResult.error(errorBody)
-                }
+                NetworkResult.error(errorBody)
+            } else {
+                NetworkResult.error("Error in fetching data")
+            }
 
-        }catch (e: Exception) {
+        } catch (e: Exception) {
             println(e.message)
             throw RuntimeException(e)
         }
-        return NetworkResult.loading()
     }
 }
