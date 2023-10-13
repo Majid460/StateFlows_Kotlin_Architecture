@@ -53,4 +53,7 @@
     <string name="notification_channel_description">Shows indicator notification for a meeting</string>
     <string name="spellchecker_name">spell checker</string>
     <string name="subtype_generic">subtype generic</string>
+    <string name="fetch_data">Fetch Data</string>
+    <string name="delete_data">Delete Data</string>
+    <string name="no_data_found">No Data Found</string>
 </resources>
