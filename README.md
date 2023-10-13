@@ -5,3 +5,8 @@ This project has:
 2. Hilt dependency injection
 3. Retrofit
 4. Coroutines
+5. Room
+
+
+https://github.com/Majid460/StateFlows_Kotlin_Architecture/assets/80375443/b1664b84-0441-4105-bc8a-a1aaea42c46c
+
