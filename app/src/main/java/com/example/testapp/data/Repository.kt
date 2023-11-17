@@ -63,4 +63,6 @@ class Repository @Inject constructor(
     fun destroyScope(){
         externalScope.cancel()
     }
+
+    suspend fun getBooksForMvi() = api.getBooksForMvi()
 }

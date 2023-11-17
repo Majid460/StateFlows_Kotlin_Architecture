@@ -1,5 +1,6 @@
 package com.example.testapp.ui.main
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Lifecycle
@@ -11,6 +12,7 @@ import com.example.testapp.R
 import com.example.testapp.base.BaseActivity
 import com.example.testapp.databinding.ActivityMainBinding
 import com.example.testapp.ui.main.adapter.BooksAdapter
+import com.example.testapp.ui.mvi.MviTestActivity
 import com.example.testapp.utils.Status
 import com.example.testapp.utils.hide
 import com.example.testapp.utils.show
@@ -36,6 +38,10 @@ class MainActivity: BaseActivity() {
             }
             btnFetch.setOnClickListener {
                 mainViewModel.getBooks()
+            }
+            btnNext.setOnClickListener {
+                val intent= Intent(this@MainActivity , MviTestActivity::class.java)
+                startActivity(intent)
             }
         }
         setUpAdapter()
