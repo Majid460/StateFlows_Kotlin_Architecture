@@ -11,4 +11,7 @@ interface ApiInterfaces {
 
     @GET("getAllAuthors")
     suspend fun getAllAuthors():Response<MutableList<AuthorsResponseModel>>
+
+    @GET("getAllBook")
+    suspend fun getBooksForMvi():MutableList<BooksResponse>
 }
